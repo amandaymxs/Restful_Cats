@@ -1,6 +1,7 @@
 {
-    "Cats": {
-        "Ellie": {
+    "cats": [
+        {
+            "name": "Ellie",
             "age": "Young",
             "color": "Black",
             "breed": "Domestic shorthair",
@@ -16,10 +17,11 @@
                 "Basic vaccine",
                 "Vet exam",
                 "Dewormed and Revolution",
-                "Microchipped",
+                "Microchipped"
             ]
         },
-        "Jabba": {
+        {
+            "name": "Jabba",
             "age": "Senior",
             "color": "Black and white",
             "breed": "Domestic shorthair",
@@ -38,7 +40,8 @@
                 "Microchipped"
             ]
         },
-        "Becky": {
+        {
+            "name": "Becky",
             "age": "Mature",
             "color": "Black and white",
             "breed": "Domestic shorthair",
@@ -56,7 +59,8 @@
                 "Microchipped"
             ]
         },
-        "Maggie": {
+        {
+            "name": "Maggie",
             "age": "Prime",
             "color": "Black and white",
             "breed": "Domestic shorthair",
@@ -74,7 +78,8 @@
                 "Microchipped"
             ]
         },
-        "Katia": {
+        {
+            "name": "Katia",
             "age": "Prime",
             "color": "Black and white",
             "breed": "Domestic shorthair",
@@ -92,7 +97,8 @@
                 "Microchipped"
             ]
         },
-        "Clement": {
+        {
+            "name": "Clement",
             "age": "Young",
             "color": "Beige and white",
             "breed": "Domestic shorthair",
@@ -110,7 +116,8 @@
                 "Micropuce"
             ]
         },
-        "Alban et Albert": {
+        {
+            "name": "Alban et Albert",
             "age": "Adolescent",
             "color": "Brun",
             "breed": "Domestic shorthair",
@@ -128,5 +135,5 @@
                 "Micropuce"
             ]
         }
-    }
+    ]
 }
