@@ -4,16 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Cat Adoption Posts</title>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
     <h1>Cat Adoption Posts</h1>
-    <p>
-        <% for (let cat of cats) { %>
-            <%= cat.name %>
+    <div class="container">
+        <div class="row">
+            <% for (let cat of cats) { %>
+                <div class="col-md-6">
+                    <img class="img-thumbnail mx-auto d-block" src="<%= cat.img %>" alt="">
+                </div>
+                <div class="col-md-6">
+                    <%= cat.name %>
+                </div>
                 <% } %>
-    </p>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
 const data = require('./data.json');
+
 const port = 4000;
 const path = require('path');
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+
 app.set('view engine', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
