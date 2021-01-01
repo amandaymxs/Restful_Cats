@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/header')%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <title>Cat Adoption Posts</title>
-    <link rel="stylesheet" href="/css/app.css">
-</head>
-
-<body>
-    <h1>Cat Adoption Posts</h1>
     <div class="container">
         <div class="row">
             <% for (let cat of cats) { %>
@@ -19,11 +7,37 @@
                     <img class="img-thumbnail mx-auto d-block" src="<%= cat.img %>" alt="">
                 </div>
                 <div class="col-md-6">
-                    <%= cat.name %>
+                    <b class="name">
+                        <%= cat.name %>
+                    </b> - <p class="description age">
+                        <%= cat.age %>
+                    </p>
+                    <p class="description">Gender: <%= cat.gender %>
+                    </p>
+                    <p class="description">Color: <%= cat.color %>
+                    </p>
+                    <p class="description">Breed: <%= cat.breed %>
+                    </p>
+                    <p class="description">Where can you adopt <%= cat.name %>? <%= cat.source%>
+                    </p>
+                    <p class="description">Why should you adopt from <%= cat.source%>? They are a <%= cat.sourcetype %>
+                                organization.
+                    </p>
+                    <p class="description">Adoption Fee: <%= cat.adoptionFee %>
+                    </p>
+                    <p class="description">Included in adoption fee:
+                    <ul>
+                        <% for(let item of cat.feeIncludes){ %>
+                            <li>
+                                <%= item %>
+                            </li>
+                            <% } %>
+                    </ul>
+                    </p>
                 </div>
                 <% } %>
         </div>
     </div>
-</body>
+    </body>
 
-</html>
+    </html>
