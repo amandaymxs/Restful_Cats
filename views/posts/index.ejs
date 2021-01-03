@@ -4,15 +4,23 @@
 
     <!-----------TITLE-------------->
     <h1 class="text-center my-5">There are <b class="text-success">
-            <%= cats.length %>
+            <%= data.length %>
         </b> cats available for adoption</h1>
 
+    <% for (let cat of data) { %>
+        <% for (let key in cat) { %>
+            <h1>
+                <%= cat[key] %>
 
-    <!-----------FORM-------------->
+            </h1>
 
-    <%= cats[0].name %>
+            <% }}%>
 
 
-        </body>
 
-        </html>
+                <!-----------FORM-------------->
+
+
+                </body>
+
+                </html>
