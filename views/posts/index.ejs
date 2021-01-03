@@ -1,51 +1,18 @@
-<!--CRUD - READ-->>
+<!--CRUD - READ-->
 
 <%- include('partials/header')%>
+
+    <!-----------TITLE-------------->
     <h1 class="text-center my-5">There are <b class="text-success">
             <%= cats.length %>
-        </b> %> cats available for adoption</h1>
-    <div class="container">
-        <div class="row adoptionForm">
-            <% for (let cat of cats) { %>
-                <div class="col-md-6">
-                    <img class="img-thumbnail mx-auto d-block" src="<%= cat.img %>" alt="">
-                </div>
-                <div class="col-md-6 mt-2 border-bottom border-info">
-                    <b class="name h4">
-                        <%= cat.name %>
-                    </b> - <p class="description age">
-                        <%= cat.age %>
-                    </p>
-                    <p class="description">Gender: <%= cat.gender %>
-                    </p>
-                    <p class="description">Color: <%= cat.color %>
-                    </p>
-                    <p class="description">Breed: <%= cat.breed %>
-                    </p>
-                    <p class="description">Where can you adopt <%= cat.name %>? <%= cat.source%>
-                    </p>
-                    <p class="description">Why should you adopt from <%= cat.source%>? They are a <%= cat.sourcetype %>
-                                organization.
-                    </p>
-                    <p class="description">Adoption Fee: <%= cat.adoptionFee %>
-                    </p>
-                    <p class="description">Included in adoption fee:
-                    <ul>
-                        <% for(let item of cat.feeIncludes){ %>
-                            <li>
-                                <%= item %>
-                            </li>
-                            <% } %>
-                    </ul>
-                    </p>
-                    <h2>
+        </b> cats available for adoption</h1>
 
-                    </h2>
-                </div>
-                <% } %>
-        </div>
-    </div>
 
-    </body>
+    <!-----------FORM-------------->
 
-    </html>
+    <%= cats[0].name %>
+
+
+        </body>
+
+        </html>
