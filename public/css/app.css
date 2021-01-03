@@ -10,3 +10,7 @@ body{
 .age{
     display: inline-block;
 }
+
+.adoptionFeeItem{
+    list-style-type:none;
+}
