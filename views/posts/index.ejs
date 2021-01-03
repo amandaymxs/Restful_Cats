@@ -6,21 +6,44 @@
     <h1 class="text-center my-5">There are <b class="text-success">
             <%= data.length %>
         </b> cats available for adoption</h1>
+    <div class="d-flex flex-row ">
+        <div class="p-2">
+            <% for (let cat of data) { %>
 
-    <% for (let cat of data) { %>
-        <% for (let key in cat) { %>
-            <h1>
-                <%= cat[key] %>
+                <div class="col-md-6 mx-auto d-block my-4">
+                    <% for (let key in cat) { %>
 
-            </h1>
+                        <% if (key==='img' ){ %>
+                            <img class="img-thumbnail mx-auto d-block mb-4" src="<%= cat[key] %>" alt="">
+                            <% } else if (key==='feeIncludes' ){ %>
 
-            <% }}%>
+                                <h2 class="h5 key">INCLUDED IN ADOPTION FEE:
+                                    <ul>
+                                        <% for(let item of cat[key]){ %>
+                                            <li class="adoptionFeeItem valueItem">
+                                                <%= item %>
+                                            </li>
+                                            <% } %>
+                                    </ul>
+                                </h2>
 
+                                <% } else { %>
 
+                                    <h2 class="h5 key">
+                                        <%= key.toUpperCase() %> :
+                                    </h2>
 
-                <!-----------FORM-------------->
+                                    <h2 class="h5 value">
+                                        <%= cat[key] %>
+                                    </h2>
 
+                                    <% } } %>
+                </div>
+                <% } %>
 
-                </body>
+        </div>
+    </div>
 
-                </html>
+    </body>
+
+    </html>
