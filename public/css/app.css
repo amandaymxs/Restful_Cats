@@ -13,8 +13,7 @@ body{
 
 .feeIncludesItem{
     list-style-type:none;
-    padding: 0.3em;
-    list-style: none;
+    padding: 0.2em;
 }
 
 .key{
@@ -26,8 +25,13 @@ body{
 .value{
     font-family: 'Roboto', sans-serif;
     display: inline-block;
+    font-size: medium;
 }
 
 .valueItem{
     font-family: 'Roboto', sans-serif;
 }
+
+td {
+    vertical-align: middle;
+  }
