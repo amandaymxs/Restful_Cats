@@ -1,15 +1,16 @@
 
 
 let other = document.querySelector('#other');
+let otherInputSpan = document.querySelector('.otherInputSpan');
 let otherInput = document.querySelector('.otherInput');
 
 other.addEventListener('click', () => {
     if (other.checked) {
-        otherInput.style.display = 'inline';
+        otherInputSpan.style.display = 'inline';
         otherInput.setAttribute("required", "");
         console.log("show");
     } else {
-        otherInput.style.display = 'none';
+        otherInputSpan.style.display = 'none';
         otherInput.removeAttribute("required");
         console.log("hide");
     }
@@ -22,15 +23,13 @@ document.getElementById('submit').onclick = () => {
             return;
         }
 
-        if (!answer.value) {
-            allRequiredFilled = false;
-        }
-
-        if ((age.value == "") || (gender.value == "")) {
+        if ((!answer.value) || (age.value == "") || (gender.value == "") || (otherInput.value == "")) {
             allRequiredFilled = false;
         }
     })
     if (!allRequiredFilled) {
         alert('Information is missing, please review form.')
+    } else {
+        alert('Completed');
     }
 }
