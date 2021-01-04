@@ -13,13 +13,19 @@ body{
 
 .feeIncludesItem{
     list-style-type:none;
+    padding: 0.3em;
+    list-style: none;
 }
 
 .key{
-    font-family: 'PT Sans Caption', sans-serif;}
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size: medium;
+    padding: 0.5em;
+}
 
 .value{
-    font-family: 'Roboto', sans-serif;    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
 }
 
 .valueItem{
