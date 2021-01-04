@@ -4,14 +4,15 @@
 
     <h1>Create a new adoption post</h1>
     <h2>Complete the below information about the Adoptee</h2>
-    <form action="">
+    <form id="adoptionForm" action="">
         <div class="d-block">
             <label for="name">Name: </label><input type="text" name="name" id="name" required>
         </div>
 
         <div class="d-block">
             <label for="age">Age:</label>
-            <select id="age" required>
+            <select id="age" name="age">
+                <option value="">---Please Select---</option>
                 <option value="Young">Young (0 - 6 months)</option>
                 <option value="Adolescent">Adolescent (7 months - 2 years)</option>
                 <option value="Prime">Prime (3 - 6 years)</option>
@@ -31,7 +32,8 @@
         </div>
         <div class="d-block">
             <label for="gender">Gender: </label>
-            <select id="gender">
+            <select id="gender" name="gender">
+                <option value=""></option>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
             </select>
@@ -49,8 +51,8 @@
         </div>
 
         <div class="d-block">
-            <label for="source-type">Adoption Source Type: </label>
-            <input type="text" name="source-type" id="source-type" required>
+            <label for="sourcetype">Adoption Source Type: </label>
+            <input type="text" name="sourcetype" id="sourcetype" required>
         </div>
 
         <div class="d-block">
@@ -61,30 +63,26 @@
         <div class="d-block">
             <legend>Included in Adoption Fee: (Select all that applies)</legend>
             </label>
-            <ul class="adoptionFeeList">
-                <li class="adoptionFeeItem"><input type="checkbox" id="sterilized" name="sterilized" value="sterilized">
+            <ul class="feeIncludes">
+                <li class="feeIncludesItem"><input type="checkbox" id="sterilized" name="sterilized" value="sterilized">
                     <label for="sterilized">
                         Sterilized</label>
                 </li>
-                <li class="adoptionFeeItem"><input type="checkbox" id="FIVFelV tested" name="FIVFelV tested"
+                <li class="feeIncludesItem"><input type="checkbox" id="FIVFelV tested" name="FIVFelV tested"
                         value="FIVFelV tested">
                     <label for="sterilized">
                         FIV/FelV tested</label>
                 </li>
-                <li class="adoptionFeeItem"><input type="checkbox" id="sterilized" name="sterilized" value="sterilized">
-                    <label for="sterilized">
-                        Sterilized</label>
-                </li>
-                <li class="adoptionFeeItem"><input type="checkbox" id="vaccine" name="vaccine" value="vaccine">
+                <li class="feeIncludesItem"><input type="checkbox" id="vaccine" name="vaccine" value="vaccine">
                     <label for="vaccine">
                         Basic Vaccine</label>
                 </li>
-                <li class="adoptionFeeItem"><input type="checkbox" id="microchipped" name="microchipped"
+                <li class="feeIncludesItem"><input type="checkbox" id="microchipped" name="microchipped"
                         value="microchipped">
                     <label for="microchipped">
                         Microchipped</label>
                 </li>
-                <li class="adoptionFeeItem"><input type="checkbox" id="other" name="other" value="other">
+                <li class="feeIncludesItem"><input type="checkbox" id="other" name="other" value="other">
                     <label for="other">Other </label>
                     <span class="otherInput" style="display: none">: <input type="text" class="otherInput"
                             name="otherInput"></span>
@@ -92,7 +90,7 @@
 
             </ul>
         </div>
-
+        <button id="submit">Submit</button>
     </form>
 
 

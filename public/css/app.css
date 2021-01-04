@@ -11,6 +11,17 @@ body{
     display: inline-block;
 }
 
-.adoptionFeeItem{
+.feeIncludesItem{
     list-style-type:none;
+}
+
+.key{
+    font-family: 'PT Sans Caption', sans-serif;}
+
+.value{
+    font-family: 'Roboto', sans-serif;    display: inline-block;
+}
+
+.valueItem{
+    font-family: 'Roboto', sans-serif;
 }
