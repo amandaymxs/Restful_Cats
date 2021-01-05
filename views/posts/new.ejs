@@ -10,7 +10,7 @@
                 <tbody>
                     <tr>
                         <th scope="row"> <label class="key" for="name">Name: </label></th>
-                        <td><input type="text" name="name" id="name" required></td>
+                        <td><input class="userInputText" type="text" name="name" id="name" minlength="2" required></td>
                     </tr>
                     <tr>
                         <th scope="row"> <label class="key" for="age">Age:</label></th>
@@ -26,11 +26,19 @@
 
                     <tr>
                         <th scope="row"> <label class="key" for="color">Color: </label></th>
-                        <td> <input type="text" name="color" id="color" required></td>
+                        <td> <input class="userInputText" type="text" name="color" id="color" minlength="3" required>
+                        </td>
+                        <td>
+                            <h2 class="feedback"></h2>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="breed">Breed: </label></th>
-                        <td> <input type="text" name="breed" id="breed" required></td>
+                        <td> <input class="userInputText" type="text" name="breed" id="breed" minlength="3" required>
+                        </td>
+                        <td>
+                            <h2 class="feedback"></h2>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"> <label class="key" for="gender">Gender: </label></th>
@@ -42,19 +50,34 @@
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="backstory">Description/History: </label></th>
-                        <td> <textarea name="backstory" id="backstory" cols="50" rows="8"></textarea></td>
+                        <td> <textarea name="backstory" id="backstory" cols="50" rows="8" minlength="15"></textarea>
+                        </td>
+                        <td>
+                            <h2 class="feedback"></h2>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="source">Adoption Source: </label></th>
-                        <td><input type="text" name="source" id="source" required></td>
+                        <td><input class="userInputText" type="text" name="source" id="source" minlength="3" required>
+                        </td>
+                        <td>
+                            <h2 class="feedback"></h2>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="sourcetype">Adoption Source Type: </label></th>
-                        <td><input type="text" name="sourcetype" id="sourcetype" required></td>
+                        <td><input class="userInputText" type="text" name="sourcetype" id="sourcetype" minlength="3"
+                                required></td>
+                        <td>
+                            <h2 class="feedback"></h2>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="adoptionFee">Adoption Fee:</label></th>
                         <td><input type="number" id="adoptionFee" name="adoptionFee" min="0" required></td>
+                        <td>
+                            <h2 class="feedback"></h2>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">
@@ -69,7 +92,7 @@
                                 </li>
                                 <li class="feeIncludesItem"><input type="checkbox" id="FIVFelV tested"
                                         name="FIVFelV tested" value="FIVFelV tested">
-                                    <label for="sterilized">
+                                    <label for="FIVFelV tested">
                                         FIV/FelV tested</label>
                                 </li>
                                 <li class="feeIncludesItem"><input type="checkbox" id="vaccine" name="vaccine"
@@ -85,8 +108,8 @@
                                 <li class="feeIncludesItem"><input type="checkbox" id="other" name="other"
                                         value="other">
                                     <label for="other">Other </label>
-                                    <span class="otherInputSpan" style="display: none">: <input type="text"
-                                            class="otherInput" name="otherInput"></span>
+                                    <span class="otherInputSpan" style="display: none">: <input class="userInputText"
+                                            type="text" class="otherInput" name="otherInput" minlength="3"></span>
                                 </li>
                             </ul>
                         </td>
@@ -109,6 +132,5 @@
     </div>
 
     <script src="/js/assets/create.js">
-        console.log("hi");
     </script>
     </body>
