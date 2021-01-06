@@ -31,3 +31,12 @@ body{
 .valueItem{
     font-family: 'Roboto', sans-serif;
 }
+
+#submit:disabled{
+    opacity: 0.3;
+}
+
+.feedback{
+    vertical-align: text-bottom;
+    font-size: small;
+}
