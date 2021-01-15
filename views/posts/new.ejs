@@ -1,21 +1,21 @@
 <!--CRUD - CREATE-->
 
 <%- include('partials/header')%>
-
+    <meta charset="utf-8" />
     <h1 class="text-center">Create a new adoption post</h1>
     <h2 class="text-center">Complete the below information about the Adoptee</h2>
     <h3 class="text-center">All fields required.</h3>
     <div class="d-flex justify-content-center">
-        <form class="d-block mt-4" id="adoptionForm" action="" onSubmit="return validateForm()">
+        <form class="d-block mt-4" id="adoptionForm" action="/posts" method="post" onSubmit="return ValidateForm()">
             <table class=" table">
                 <tbody>
                     <tr>
                         <th scope="row"> <label class="key" for="name">Name: </label></th>
-                        <td><input class="userInputText" type="text" name="name" id="name" pattern="[A-Za-z-.].{2,}"
-                                title="2 characters minimum" required>
+                        <td><input class="userInputText" type="text" name="name" id="name input0" pattern=".{3,}"
+                                title="3 characters minimum" required>
                         </td>
                         <td>
-                            <h4 class="feedback"></h4>
+                            <p id="feedback0"></p>
                         </td>
                     </tr>
                     <tr>
@@ -27,25 +27,25 @@
                                 <option value="Prime">Prime (3 - 6 years)</option>
                                 <option value="Mature">Mature (7 to 10 years)</option>
                                 <option value="Senior">Senior (11+ years)</option>
-                            </select></td>
+                            </select> </td>
                     </tr>
 
                     <tr>
                         <th scope="row"> <label class="key" for="color">Color: </label></th>
-                        <td> <input class="userInputText" type="text" name="color" id="color" pattern="[A-Za-z-.].{3,}"
+                        <td> <input class="userInputText" type="text" name="color" id="color input1" pattern=".{3,}"
                                 title="3 characters minimum" required>
                         </td>
                         <td>
-                            <h4 class="feedback"></h4>
+                            <p id="feedback1"></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="breed">Breed: </label></th>
-                        <td> <input class="userInputText" type="text" name="breed" id="breed" pattern="[A-Za-z-.].{3,}"
+                        <td> <input class="userInputText" type="text" name="breed" id="breed input2" pattern=".{3,}"
                                 title="3 characters minimum" required>
                         </td>
                         <td>
-                            <h4 class="feedback"></h4>
+                            <p id="feedback2"></p>
                         </td>
                     </tr>
                     <tr>
@@ -54,30 +54,31 @@
                                 <option value="" default></option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
-                            </select></td>
+                            </select> </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="backStory">Description/History: </label></th>
-                        <td> <textarea name="backStory" id="backStory" cols="50" rows="8" minlength="30" maxlength="400"
+                        <td><textarea name="backStory" id="backStory" cols="50" rows="8" minlength="30" maxlength="400"
                                 title="30 - 400 characters"></textarea>
-                            <h4 class="feedback mt-2"><span class="counter">400</span> characters available</h4>
+                            <h4 id="feedback mt-2"><span id="counter">400</span> characters available</h4>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="source">Adoption Source: </label></th>
-                        <td><input class="userInputText" type="text" name="source" id="source" pattern="[A-Za-z-.].{3,}"
-                                title="3 characters minimum" required>
+                        <td><input class="userInputText" type="text" name="source" id="source input3" pattern=".{2,}"
+                                title="2 characters minimum" required>
                         </td>
                         <td>
-                            <h4 class="feedback"></h4>
+                            <p id="feedback3"></p>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label class="key" for="sourcetype">Adoption Source Type: </label></th>
-                        <td><input class="userInputText" type="text" name="sourcetype" id="sourcetype"
-                                pattern="[A-Za-z-.].{3,}" title="3 characters minimum" required></td>
+                        <th scope="row"><label class="key" for="sourceType">Adoption Source Type: </label></th>
+                        <td><input class="userInputText" type="text" name="sourceType" id="sourcetype input4"
+                                pattern=".{2,}" title="2 characters minimum" required>
+                        </td>
                         <td>
-                            <h4 class="feedback"></h4>
+                            <p id="feedback4"></p>
                         </td>
                     </tr>
                     <tr>
@@ -114,25 +115,26 @@
                                         value="other">
                                     <label for="other">Other </label>
                                     <span class="otherInputSpan" style="display: none">: <input type="text"
-                                            class="otherInput" name="otherInput" pattern="[A-Za-z-.].{3,}"
-                                            title="3 characters minimum"></span>
+                                            class="otherInput" name="otherInput input5" placeholder="Please specify">
+                                    </span>
                                 </li>
                                 <li class="feeIncludesItem"><input type="checkbox" id="noInclusions" name="noInclusions"
                                         value="noInclusions">
                                     <label for="noInclusions">
                                         No Inclusions</label>
                                 </li>
+
                             </ul>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="img">Upload Image :</label></th>
-                        <td><input type="file" id="img" name="img" accept="image/*" required /></td>
+                        <td><input type="file" id="img" name="img" accept="image/*" required pattern={3,} /> </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn bg-dark text-white" type="button" id="submit">Submit</button>
+                                <button class="btn bg-dark text-white" type="submit" id="submit">Submit</button>
                             </div>
                         </td>
                     </tr>
@@ -142,7 +144,7 @@
         </form>
     </div>
 
-    <script src="/js/assets/create.js">
+    <script src="/js/assets/create.js" charset="utf-8">
     </script>
     </body>
 

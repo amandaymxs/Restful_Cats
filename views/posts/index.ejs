@@ -10,7 +10,7 @@
         <div class="row">
 
             <% for (let cat of data) { %>
-                <div class="col-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <table class="table">
                         <tbody>
                             <% for (let key in cat) { %>
@@ -47,7 +47,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <h2 class="h5 value">
+                                                    <h2 class="h5 value mb-0">
                                                         <%= cat[key] %>
                                                     </h2>
                                                 </td>

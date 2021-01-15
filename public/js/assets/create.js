@@ -1,5 +1,3 @@
-
-
 let other = document.querySelector('#other');
 let otherInputSpan = document.querySelector('.otherInputSpan');
 let otherInput = document.querySelector('.otherInput');
@@ -13,49 +11,53 @@ other.addEventListener('click', () => {
         otherInput.removeAttribute("required");
     }
 })
+
 let clickOne;
 let clickTwo;
+let feedbackNum;
+
+let allInputText = document.getElementsByClassName('userInputText');
+let allFeedback = document.getElementsByClassName('feedback');
 
 document.addEventListener('click', (e) => {
-    if ((!clickOne) && (e.target.id != "") && (e.target.type == "text" | "backStory")) {
+    //press tab does not verify information
+    if ((!clickOne) && (e.target.id != "") && (e.target.type == "text")) {
         clickOne = e.target;
     } else if ((clickOne) && (e.target.id != "") && (e.target.type == "text")) {
         clickTwo = clickOne;
         clickOne = e.target;
         if (clickOne.id != clickTwo.id) {
-            console.log(clickOne.id, clickTwo.id);
-            if (clickTwo.value.length < 4) {
-                console.log("Error", clickTwo.value.length);
+            let success = '\u2713';
+            let fail = '\u2717';
+            let num = clickTwo.id.replace(/\D/g, "");
+            let fbN = 'feedback' + num;
+            let feedbackNum = document.querySelector('#' + fbN);
+            if (clickTwo.value.length > 3) {
+                feedbackNum.innerText = success;
+                feedbackNum.style.color = 'green';
+            } else {
+                feedbackNum.innerText = fail;
+                feedbackNum.style.color = 'red';
             }
-        } else {
-
         }
-
     }
 })
 
 let backStory = document.getElementById('backStory');
 
 backStory.addEventListener('input', (e) => {
-    let feedbackCounter = document.getElementsByClassName('counter');
+    let feedbackCounter = document.getElementById('counter');
     const target = e.currentTarget;
     const maxLength = target.getAttribute("maxlength");
     const currentLength = target.value.length;
-    feedbackCounter[0].innerText = maxLength - currentLength;
+    feedbackCounter.innerText = maxLength - currentLength;
 })
 
-document.getElementById('submit').addEventListener('', () => {
-    let allRequiredFilled = true;
-    document.getElementById('adoptionForm').querySelectorAll("[required]").forEach(function (answer) {
-        if (!allRequiredFilled) {
-            return;
-        } else if ((!answer.value) || (age.value == "") || (gender.value == "") || (otherInput.value == "")) {
-            allRequiredFilled = false;
-        }
-    });
-    if (allRequiredFilled) {
-        console.log('removed')
-        document.getElementById('submit').removeAttr('disabled');
+function validateForm(e) {
+    try {
+        error
+    } catch (err) {
+        console.log(err);
+        e.preventDefault();
     }
-})
-
+}

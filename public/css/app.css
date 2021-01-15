@@ -18,25 +18,28 @@ body{
 
 .key{
     font-family: 'PT Sans Caption', sans-serif;
+}
+
+.h5{
     font-size: medium;
     padding: 0.5em;
 }
-
 .value{
     font-family: 'Roboto', sans-serif;
-    display: inline-block;
-    font-size: medium;
+
 }
 
 .valueItem{
     font-family: 'Roboto', sans-serif;
 }
 
-#submit:disabled{
+/* #submit:disabled{
     opacity: 0.3;
-}
+} */
 
-.feedback{
-    vertical-align: text-bottom;
+
+[id^=feedback]{
     font-size: small;
+    vertical-align: text-bottom;
+
 }
