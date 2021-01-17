@@ -6,7 +6,7 @@
     <h1 class="text-center my-5">There are <b class="text-success">
             <%= data.length %>
         </b> cats available for adoption</h1>
-    <div class="container">
+    <div class="container mx-auto">
         <div class="row">
 
             <% for (let cat of data) { %>
@@ -29,13 +29,19 @@
                                             </td>
 
                                             <td>
-                                                <ul>
-                                                    <% for(let item of cat[key]){ %>
-                                                        <li class="adoptionFeeItem valueItem">
-                                                            <%= item %>
-                                                        </li>
+                                                <% if (!Array.isArray(cat[key])) { %>
+                                                    <li>
+                                                        <%= cat[key] %>
+                                                    </li>
+                                                    <%} else { %>
+                                                        <ul>
+                                                            <% for(let item of cat[key]){ %>
+                                                                <li class="adoptionFeeItem valueItem">
+                                                                    <%= item %>
+                                                                </li>
+                                                                <% } %>
+                                                        </ul>
                                                         <% } %>
-                                                </ul>
                                             </td>
                                         </tr>
                                         <% } else { %>

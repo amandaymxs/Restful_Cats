@@ -74,7 +74,7 @@
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="sourceType">Adoption Source Type: </label></th>
-                        <td><input class="userInputText" type="text" name="sourceType" id="sourcetype input4"
+                        <td><input class="userInputText" type="text" name="sourceType" id="sourceType input4"
                                 pattern=".{2,}" title="2 characters minimum" required>
                         </td>
                         <td>
@@ -87,44 +87,17 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <legend class="key">Included in Adoption Fee: (Select all that applies)</legend>
+                            <label for="h5 key">Included in Adoption Fee: (Select all that applies)</label>
                         </th>
                         <td>
-                            <ul class="feeIncludes">
-                                <li class="feeIncludesItem"><input type="checkbox" id="sterilized" name="sterilized"
-                                        value="sterilized">
-                                    <label for="sterilized">
-                                        Sterilized</label>
-                                </li>
-                                <li class="feeIncludesItem"><input type="checkbox" id="FIVFelV tested"
-                                        name="FIVFelV tested" value="FIVFelV tested">
-                                    <label for="FIVFelV tested">
-                                        FIV/FelV tested</label>
-                                </li>
-                                <li class="feeIncludesItem"><input type="checkbox" id="vaccine" name="vaccine"
-                                        value="vaccine">
-                                    <label for="vaccine">
-                                        Basic Vaccine</label>
-                                </li>
-                                <li class="feeIncludesItem"><input type="checkbox" id="microchipped" name="microchipped"
-                                        value="microchipped">
-                                    <label for="microchipped">
-                                        Microchipped</label>
-                                </li>
-                                <li class="feeIncludesItem"><input type="checkbox" id="other" name="other"
-                                        value="other">
-                                    <label for="other">Other </label>
-                                    <span class="otherInputSpan" style="display: none">: <input type="text"
-                                            class="otherInput" name="otherInput input5" placeholder="Please specify">
-                                    </span>
-                                </li>
-                                <li class="feeIncludesItem"><input type="checkbox" id="noInclusions" name="noInclusions"
-                                        value="noInclusions">
-                                    <label for="noInclusions">
-                                        No Inclusions</label>
-                                </li>
-
-                            </ul>
+                            <select name="feeIncludes" id="feeIncludes" multiple>
+                                <option class="feeIncludesItem" value="Sterilized">Sterilized</option>
+                                <option class="feeIncludesItem" value="FIVFelV tested">FIVFelV tested</option>
+                                <option class="feeIncludesItem" value="Basic Vaccine">Basic Vaccine</option>
+                                <option class="feeIncludesItem" value="Microchipped">Microchipped</option>
+                                <option class="feeIncludesItem" value="Other">Other</option>
+                                <option class="feeIncludesItem" value="No Inclusions">No Inclusions</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>

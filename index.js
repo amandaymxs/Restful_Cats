@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
 const data = require('./data.json');
-
+const fs = require('fs')
 
 const port = 4000;
 const path = require('path');
@@ -22,24 +21,19 @@ app.get('/posts/new', (req, res) => {
 
 //Read
 app.get('/posts', (req, res) => {
-
     res.render('posts/index', { data });
 })
 
 app.post('/posts', (req, res) => {
-    // const { name, age, color, breed, gender, backstory, source, sourceType, adoptionFee, feeIncludes } = req.body;
+    // const { name, age, color, breed, gender, backstory, source, sourceType, adoptionFee, feeIncludes, img} = req.body;
     // posts.unshift({ name, age, color, breed, gender, backstory, source, sourceType, adoptionFee, feeIncludes });
-    const { name, age, color, breed, gender, backStory, source, sourcetype, adoptionFee, feeIncludesItem } = req.body;
-    fs.readFileSync('data.json', function (err, data) {
-        if (err) {
-            console.log("File read failed:", err);
-            return;
-        } else {
-            let json = JSON.parse(data);
-            json.push({ name, age, color, breed, gender, backStory, source, sourcetype, adoptionFee, feeIncludesItem });
-            fs.writeFile('data.json', JSON.stringify(json));
-        }
+    const { name, age, color, breed, gender, backStory, source, sourceType, adoptionFee, feeIncludes, img } = req.body;
+    data.unshift({ img, name, age, color, breed, gender, backStory, source, sourceType, adoptionFee, feeIncludes });
+    fs.writeFile('data.json', JSON.stringify(data, null, 2), function (error) {
+        if (error) throw error;
+        console.log('Saved!');
     })
+    console.log('It worked!');
     res.render('posts/', { data });
 })
 

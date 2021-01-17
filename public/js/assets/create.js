@@ -2,8 +2,10 @@ let other = document.querySelector('#other');
 let otherInputSpan = document.querySelector('.otherInputSpan');
 let otherInput = document.querySelector('.otherInput');
 
-other.addEventListener('click', () => {
-    if (other.checked) {
+let expanded = false;
+
+other.addEventListener('onchange', () => {
+    if (other.selected) {
         otherInputSpan.style.display = 'inline';
         otherInput.setAttribute("required", "");
     } else {
