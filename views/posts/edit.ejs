@@ -1,10 +1,9 @@
-<!--CRUD - CREATE-->
-
 <%- include('partials/header')%>
 
-    <h1 class="text-center">Create a new adoption post</h1>
-    <h2 class="text-center">Complete the below information about the Adoptee</h2>
-    <h3 class="text-center">All fields required.</h3>
+    <script src="/js/assets/edit.js" charset="utf-8"></script>
+
+    <h2 class="text-center">Edit <%= post.name %>'s Details</h2>
+    <h3 class="text-center">All fields must be filled.</h3>
     <div class="d-flex justify-content-center">
         <form class="d-block mt-4" id="adoptionForm" action="/posts" method="post" onSubmit="return ValidateForm()">
             <table class=" table">
@@ -12,16 +11,15 @@
                     <tr>
                         <th scope="row"> <label class="key" for="name">Name: </label></th>
                         <td><input class="userInputText" type="text" name="name" id="name input0" pattern=".{3,}"
-                                title="3 characters minimum" required>
-                        </td>
-                        <td>
-                            <p id="feedback0"></p>
+                                title="3 characters minimum" value="<%=post.name%>" required>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"> <label class="key" for="age">Age:</label></th>
                         <td><select id="age" name="age">
-                                <option value="" default></option>
+                                <option value="" default>
+                                    <%= post.age %>
+                                </option>
                                 <option value="Young">Young (0 - 6 months)</option>
                                 <option value="Adolescent">Adolescent (7 months - 2 years)</option>
                                 <option value="Prime">Prime (3 - 6 years)</option>
@@ -33,16 +31,13 @@
                     <tr>
                         <th scope="row"> <label class="key" for="color">Color: </label></th>
                         <td> <input class="userInputText" type="text" name="color" id="color input1" pattern=".{3,}"
-                                title="3 characters minimum" required>
-                        </td>
-                        <td>
-                            <p id="feedback1"></p>
+                                title="3 characters minimum" required value="<%= post.color %>">
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="breed">Breed: </label></th>
                         <td> <input class="userInputText" type="text" name="breed" id="breed input2" pattern=".{3,}"
-                                title="3 characters minimum" required>
+                                title="3 characters minimum" required value="<%= post.breed %>">
                         </td>
                         <td>
                             <p id="feedback2"></p>
@@ -51,7 +46,9 @@
                     <tr>
                         <th scope="row"> <label class="key" for="gender">Gender: </label></th>
                         <td> <select id="gender" name="gender">
-                                <option value="" default></option>
+                                <option value="" default>
+                                    <%= post.gender%>
+                                </option>
                                 <option value="Female">Female</option>
                                 <option value="Male">Male</option>
                             </select> </td>
@@ -59,53 +56,62 @@
                     <tr>
                         <th scope="row"><label class="key" for="backStory">Description/History: </label></th>
                         <td><textarea name="backStory" id="backStory" cols="50" rows="8" minlength="30" maxlength="400"
-                                title="30 - 400 characters"></textarea>
+                                title="30 - 400 characters"><%= post.backStory %></textarea>
                             <h4 id="feedback mt-2"><span id="counter">400</span> characters available</h4>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="source">Adoption Source: </label></th>
                         <td><input class="userInputText" type="text" name="source" id="source input3" pattern=".{2,}"
-                                title="2 characters minimum" required>
+                                title="2 characters minimum" required value="<%= post.source %>">
                         </td>
                         <td>
-                            <p id="feedback3"></p>
+                            <p id=" feedback3"></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="sourceType">Adoption Source Type: </label></th>
                         <td><input class="userInputText" type="text" name="sourceType" id="sourceType input4"
-                                pattern=".{2,}" title="2 characters minimum" required>
+                                pattern=".{2,}" title="2 characters minimum" required value="<%= post.sourceType %>">
                         </td>
                         <td>
-                            <p id="feedback4"></p>
+                            <p id=" feedback4"></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="adoptionFee">Adoption Fee:</label></th>
-                        <td><input type="number" id="adoptionFee" name="adoptionFee" min="0" required></td>
+                        <td><input type="number" id="adoptionFee" name="adoptionFee" min="0" required
+                                value="<%= post.adoptionFee %>"></td>
                     </tr>
                     <tr>
-                        <th scope="row">
+                        <th scope=" row">
                             <label for="h5 key">Included in Adoption Fee: (Select all that applies)</label>
                         </th>
                         <td>
                             <select name="feeIncludes" id="feeIncludes" multiple>
-                                <option class="feeIncludesItem" value="Sterilized">Sterilized</option>
-                                <option class="feeIncludesItem" value="FIVFelV tested">FIVFelV tested</option>
-                                <option class="feeIncludesItem" value="Basic Vaccine">Basic Vaccine</option>
-                                <option class="feeIncludesItem" value="Microchipped">Microchipped</option>
-                                <option class="feeIncludesItem" value="Other">Other</option>
-                                <option class="feeIncludesItem" value="No Inclusions">No Inclusions</option>
+                                <script>
+                                    ifSelected("<%= post.feeIncludes %>");
+
+                                </script>
+                                <option class="feeIncludesItem" id="Sterilized" value="Sterilized">Sterilized</option>
+                                <option class="feeIncludesItem" id="FIVFelVtested" value="FIVFelV tested">FIVFelV tested
+                                </option>
+                                <option class="feeIncludesItem" id="Basic Vaccine" value="Basic Vaccine">Basic Vaccine
+                                </option>
+                                <option class="feeIncludesItem" id="Microchipped" value="Microchipped">Microchipped
+                                </option>
+                                <option class="feeIncludesItem" id="Other" value="Other">Other</option>
+                                <option class="feeIncludesItem" value="NoInclusions" value="No Inclusions">No Inclusions
+                                </option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="img">Upload Image :</label></th>
-                        <td><input type="file" id="img" name="img" accept="image/*" required /> </td>
+                        <td><input type="file" id="img" name="img" accept="image/*" required /></td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan=" 2">
                             <div class="d-grid gap-2 col-4 mx-auto">
                                 <button class="btn bg-dark text-white" type="submit" id="submit">Submit</button>
                             </div>
@@ -113,12 +119,6 @@
                     </tr>
                 </tbody>
 
+                </body>
 
-        </form>
-    </div>
-
-    <script src="/js/assets/create.js" charset="utf-8">
-    </script>
-    </body>
-
-    </html>
+                </html>
