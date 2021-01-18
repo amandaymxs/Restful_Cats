@@ -44,22 +44,28 @@
                                                         <% } %>
                                             </td>
                                         </tr>
-                                        <% } else { %>
-                                            <tr>
-                                                <td>
-                                                    <h2 class="h5 key">
-                                                        <%= key.toUpperCase() %>
-                                                    </h2>
-                                                </td>
+                                        <% } else if (key==='id' ) { %>
+                                            <tr class="">
+                                                <td colspan="2" class="text-center"><a href="/posts/<%= cat[key]%>">More
+                                                        Details</a></td>
 
-                                                <td>
-                                                    <h2 class="h5 value mb-0">
-                                                        <%= cat[key] %>
-                                                    </h2>
-                                                </td>
                                             </tr>
+                                            <% } else { %>
+                                                <tr>
+                                                    <td>
+                                                        <h2 class="h5 key">
+                                                            <%= key.toUpperCase() %>
+                                                        </h2>
+                                                    </td>
 
-                                            <% } } %>
+                                                    <td>
+                                                        <h2 class="h5 value mb-0">
+                                                            <%= cat[key] %>
+                                                        </h2>
+                                                    </td>
+                                                </tr>
+
+                                                <% } } %>
                         </tbody>
                     </table>
                 </div>

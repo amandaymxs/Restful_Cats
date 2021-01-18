@@ -1,0 +1,61 @@
+<%- include('partials/header')%>
+    <h1 class="text-center my-5">
+        <%= post.name %>'s Details
+    </h1>
+    <div class="container mb-5">
+        <table class="table">
+            <tbody>
+                <% for (let key in post) { %>
+
+                    <% if (key==='img' ){ %>
+                        <tr>
+                            <td colspan="2">
+                                <img class="img-thumbnail mx-auto d-block mb-4" src="<%= post[key] %>" alt="">
+                            </td>
+                        </tr>
+                        <% } else if (key==='feeIncludes' ){ %>
+                            <tr>
+                                <td>
+                                    <h2 class="h5 key">INCLUDED IN ADOPTION FEE</h2>
+                                </td>
+
+                                <td>
+                                    <% if (!Array.isArray(post[key])) { %>
+                                        <li>
+                                            <%= post[key] %>
+                                        </li>
+                                        <%} else { %>
+                                            <ul>
+                                                <% for(let item of post[key]){ %>
+                                                    <li class="adoptionFeeItem valueItem">
+                                                        <%= item %>
+                                                    </li>
+                                                    <% } %>
+                                            </ul>
+                                            <% } %>
+                                </td>
+                            </tr>
+                            <% } else if (key==='id' ) { continue; %>
+                                <% } else { %>
+                                    <tr>
+                                        <td>
+                                            <h2 class="h5 key">
+                                                <%= key.toUpperCase() %>
+                                            </h2>
+                                        </td>
+
+                                        <td>
+                                            <h2 class="h5 value mb-0">
+                                                <%= post[key] %>
+                                            </h2>
+                                        </td>
+                                    </tr>
+
+                                    <% } } %>
+            </tbody>
+        </table>
+        <a href="/posts">Return to All Posts</a>
+    </div>
+    </body>
+
+    </html>

@@ -2,18 +2,6 @@ let other = document.querySelector('#other');
 let otherInputSpan = document.querySelector('.otherInputSpan');
 let otherInput = document.querySelector('.otherInput');
 
-let expanded = false;
-
-other.addEventListener('onchange', () => {
-    if (other.selected) {
-        otherInputSpan.style.display = 'inline';
-        otherInput.setAttribute("required", "");
-    } else {
-        otherInputSpan.style.display = 'none';
-        otherInput.removeAttribute("required");
-    }
-})
-
 let clickOne;
 let clickTwo;
 let feedbackNum;
