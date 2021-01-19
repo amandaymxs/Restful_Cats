@@ -1,7 +1,5 @@
 <%- include('partials/header')%>
 
-    <script src="/js/assets/edit.js" charset="utf-8"></script>
-
     <h2 class="text-center">Edit <%= post.name %>'s Details</h2>
     <h3 class="text-center">All fields must be filled.</h3>
     <div class="d-flex justify-content-center">
@@ -89,19 +87,19 @@
                         </th>
                         <td>
                             <select name="feeIncludes" id="feeIncludes" multiple>
-                                <script>
-                                    ifSelected("<%= post.feeIncludes %>");
 
-                                </script>
-                                <option class="feeIncludesItem" id="Sterilized" value="Sterilized">Sterilized</option>
-                                <option class="feeIncludesItem" id="FIVFelVtested" value="FIVFelV tested">FIVFelV tested
+                                <option class="feeIncludesItem" value="Sterilized">Sterilized</option>
+                                <option class="feeIncludesItem" value="FIV/FelV tested">FIV/FelV tested
                                 </option>
-                                <option class="feeIncludesItem" id="Basic Vaccine" value="Basic Vaccine">Basic Vaccine
+                                <option class="feeIncludesItem" value="Basic Vaccine">Basic Vaccine
                                 </option>
-                                <option class="feeIncludesItem" id="Microchipped" value="Microchipped">Microchipped
+                                <option class="feeIncludesItem" value="Microchipped">Microchipped
                                 </option>
-                                <option class="feeIncludesItem" id="Other" value="Other">Other</option>
-                                <option class="feeIncludesItem" value="NoInclusions" value="No Inclusions">No Inclusions
+                                <option class="feeIncludesItem" value="Vet exam">Vet exam</option>
+                                <option class="feeIncludesItem" value="Dewormed and Revolution">Dewormed and Revolution
+                                </option>
+                                <option class="feeIncludesItem" value="Other">Other</option>
+                                <option class="feeIncludesItem" value="No Inclusions">No Inclusions
                                 </option>
                             </select>
                         </td>
@@ -118,7 +116,12 @@
                         </td>
                     </tr>
                 </tbody>
+                <script src="/js/assets/edit.js" charset="utf-8"></script>
 
+                <script>
+                    ifSelected("<%= post.feeIncludes %>");
+
+                </script>
                 </body>
 
                 </html>
