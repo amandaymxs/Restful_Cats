@@ -1,16 +1,18 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+const methodOverride = require('method-override');  //Required to support PATCH, DELETE, etc requests (not supported by HTML)
 const data = require('./data.json');
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
 
 const port = 4000;
-const path = require('path');
-const { type } = require('jquery');
+// const { type } = require('jquery');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));    //parsed any data coming in from a form
+app.use(methodOverride('_method'));
 
 app.set('view engine', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -51,7 +53,7 @@ app.get('/posts/:id/edit', (req, res) => {
     res.render('posts/edit', { post });
 })
 
-//Update
+//Update - Note: HTML forms only supports get and post requests therefore we need package: method-override
 app.patch('/posts/:id', (req, res) => {
     const { id } = req.params;
     const newImg = req.body.img;
@@ -91,7 +93,7 @@ app.patch('/posts/:id', (req, res) => {
         if (error) throw error;
         console.log('Saved!');
     })
-    res.redirect('comments/:id');
+    res.redirect('/posts');
 })
 
 app.listen(port, (req, res) => {

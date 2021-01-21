@@ -54,8 +54,18 @@
                                     <% } } %>
             </tbody>
         </table>
-        <a href="/posts/<%= post.id%>/edit">Edit Post</a><br>
-        <a href="/posts">Return to All Posts</a>
+
+
+        <a class="text-decoration-none text-white" href="/posts/<%= post.id %>/edit"><button
+                class="btn bg-dark text-white" type="button" id="edit">
+                Edit Post</a></button>
+
+        <a class="text-decoration-none text-white" href="/posts"><button class="btn bg-dark text-white" type="button"
+                id="back">
+                Return to All Posts</a></button>
+
+
+
     </div>
     </body>
 

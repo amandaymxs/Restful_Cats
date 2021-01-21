@@ -3,16 +3,10 @@
     <h2 class="text-center">Edit <%= post.name %>'s Details</h2>
     <h3 class="text-center">All fields must be filled.</h3>
     <div class="d-flex justify-content-center">
-        <form class="d-block mt-4" id="adoptionForm" action="/posts" method="post" onSubmit="return ValidateForm()">
+        <form class="d-block mt-4" id="adoptionForm" action="/posts/<%= post.id %>?_method=PATCH" method="post"
+            onSubmit="return ValidateForm()">
             <table class=" table">
                 <tbody>
-                    <tr>
-                        <td colspan=" 2">
-                            <div class="d-grid gap-2 col-4 mx-auto mb-3">
-                                <button class="btn bg-light text-black" type="reset" id="clearForm">Clear Form</button>
-                            </div>
-                        </td>
-                    </tr>
                     <tr>
                         <th scope="row"> <label class="key" for="name">Name: </label></th>
                         <td><input class="userInputText" type="text" name="name" id="name input0" pattern=".{3,}"
@@ -22,7 +16,7 @@
                     <tr>
                         <th scope="row"> <label class="key" for="age">Age:</label></th>
                         <td><select id="age" name="age">
-                                <option value="" default>
+                                <option value="<%=post.age%>" default>
                                     <%= post.age %>
                                 </option>
                                 <option value="Young">Young (0 - 6 months)</option>
@@ -48,7 +42,7 @@
                     <tr>
                         <th scope="row"> <label class="key" for="gender">Gender: </label></th>
                         <td> <select id="gender" name="gender">
-                                <option value="" default>
+                                <option value="<%=post.gender%>" default>
                                     <%= post.gender%>
                                 </option>
                                 <option value="Female">Female</option>
@@ -115,9 +109,16 @@
                     </tr>
                     <tr>
                         <td colspan=" 2">
-                            <div class="d-grid gap-2 col-4 mx-auto mt-1 mb-2">
+                            <div class="d-grid gap-2 col-4 mx-auto my-1">
+                                <input class="btn bg-dark text-white" type="reset" id="clearForm" value="Reset Form">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan=" 2">
+                            <div class="d-grid gap-2 col-4 mx-auto mb-2">
                                 <a class="text-decoration-none text-white" href="/posts/<%= post.id %>"><button
-                                        class="btn bg-dark text-white " type="button" id="cancel">
+                                        class="btn bg-dark text-white" type="button" id="back">
                                         Cancel</a></button>
                             </div>
                         </td>
