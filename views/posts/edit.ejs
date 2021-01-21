@@ -7,6 +7,13 @@
             <table class=" table">
                 <tbody>
                     <tr>
+                        <td colspan=" 2">
+                            <div class="d-grid gap-2 col-4 mx-auto mb-3">
+                                <button class="btn bg-light text-black" type="reset" id="clearForm">Clear Form</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
                         <th scope="row"> <label class="key" for="name">Name: </label></th>
                         <td><input class="userInputText" type="text" name="name" id="name input0" pattern=".{3,}"
                                 title="3 characters minimum" value="<%=post.name%>" required>
@@ -37,9 +44,6 @@
                         <td> <input class="userInputText" type="text" name="breed" id="breed input2" pattern=".{3,}"
                                 title="3 characters minimum" required value="<%= post.breed %>">
                         </td>
-                        <td>
-                            <p id="feedback2"></p>
-                        </td>
                     </tr>
                     <tr>
                         <th scope="row"> <label class="key" for="gender">Gender: </label></th>
@@ -55,7 +59,7 @@
                         <th scope="row"><label class="key" for="backStory">Description/History: </label></th>
                         <td><textarea name="backStory" id="backStory" cols="50" rows="8" minlength="30" maxlength="400"
                                 title="30 - 400 characters"><%= post.backStory %></textarea>
-                            <h4 id="feedback mt-2"><span id="counter">400</span> characters available</h4>
+                            <h4 class="mt-2" id="feedback"><span id="counter">400</span> characters available</h4>
                         </td>
                     </tr>
                     <tr>
@@ -63,17 +67,11 @@
                         <td><input class="userInputText" type="text" name="source" id="source input3" pattern=".{2,}"
                                 title="2 characters minimum" required value="<%= post.source %>">
                         </td>
-                        <td>
-                            <p id=" feedback3"></p>
-                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="sourceType">Adoption Source Type: </label></th>
                         <td><input class="userInputText" type="text" name="sourceType" id="sourceType input4"
                                 pattern=".{2,}" title="2 characters minimum" required value="<%= post.sourceType %>">
-                        </td>
-                        <td>
-                            <p id=" feedback4"></p>
                         </td>
                     </tr>
                     <tr>
@@ -110,18 +108,32 @@
                     </tr>
                     <tr>
                         <td colspan=" 2">
-                            <div class="d-grid gap-2 col-4 mx-auto">
-                                <button class="btn bg-dark text-white" type="submit" id="submit">Submit</button>
+                            <div class="d-grid gap-2 col-4 mx-auto mt-2 mb-1">
+                                <button class="btn bg-dark text-white" type="submit" id="submit">Save</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan=" 2">
+                            <div class="d-grid gap-2 col-4 mx-auto mt-1 mb-2">
+                                <a class="text-decoration-none text-white" href="/posts/<%= post.id %>"><button
+                                        class="btn bg-dark text-white " type="button" id="cancel">
+                                        Cancel</a></button>
                             </div>
                         </td>
                     </tr>
                 </tbody>
-                <script src="/js/assets/edit.js" charset="utf-8"></script>
 
+                <script src="/js/assets/create.js" charset="utf-8"></script>
+                <script src="/js/assets/edit.js" charset="utf-8"></script>
                 <script>
-                    ifSelected("<%= post.feeIncludes %>");
+                    backStory = document.getElementById('backStory');
+                    const textCounter = document.querySelector('#counter');
+                    textCounter.innerText = 400 - backStory.textLength;
+                    isSelected("<%= post.feeIncludes %>");
 
                 </script>
+
                 </body>
 
                 </html>

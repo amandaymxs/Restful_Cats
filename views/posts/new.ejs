@@ -11,11 +11,8 @@
                 <tbody>
                     <tr>
                         <th scope="row"> <label class="key" for="name">Name: </label></th>
-                        <td><input class="userInputText" type="text" name="name" id="name input0" pattern=".{3,}"
+                        <td><input class="userInputText" type="text" name="name" id="name input" pattern=".{3,}"
                                 title="3 characters minimum" required>
-                        </td>
-                        <td>
-                            <p id="feedback0"></p>
                         </td>
                     </tr>
                     <tr>
@@ -32,20 +29,14 @@
 
                     <tr>
                         <th scope="row"> <label class="key" for="color">Color: </label></th>
-                        <td> <input class="userInputText" type="text" name="color" id="color input1" pattern=".{3,}"
+                        <td> <input class="userInputText" type="text" name="color" id="color input" pattern=".{3,}"
                                 title="3 characters minimum" required>
-                        </td>
-                        <td>
-                            <p id="feedback1"></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="breed">Breed: </label></th>
-                        <td> <input class="userInputText" type="text" name="breed" id="breed input2" pattern=".{3,}"
+                        <td> <input class="userInputText" type="text" name="breed" id="breed input" pattern=".{3,}"
                                 title="3 characters minimum" required>
-                        </td>
-                        <td>
-                            <p id="feedback2"></p>
                         </td>
                     </tr>
                     <tr>
@@ -65,20 +56,14 @@
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="source">Adoption Source: </label></th>
-                        <td><input class="userInputText" type="text" name="source" id="source input3" pattern=".{2,}"
+                        <td><input class="userInputText" type="text" name="source" id="source input" pattern=".{2,}"
                                 title="2 characters minimum" required>
-                        </td>
-                        <td>
-                            <p id="feedback3"></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label class="key" for="sourceType">Adoption Source Type: </label></th>
-                        <td><input class="userInputText" type="text" name="sourceType" id="sourceType input4"
+                        <td><input class="userInputText" type="text" name="sourceType" id="sourceType input"
                                 pattern=".{2,}" title="2 characters minimum" required>
-                        </td>
-                        <td>
-                            <p id="feedback4"></p>
                         </td>
                     </tr>
                     <tr>
@@ -109,11 +94,25 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <div class="d-grid gap-2 col-4 mx-auto">
+                            <div class="d-grid gap-2 col-4 mx-auto mt-2 mb-1">
                                 <button class="btn bg-dark text-white" type="submit" id="submit">Submit</button>
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="d-grid gap-2 col-4 mx-auto mt-1 mb-1">
+                                <button class="btn bg-dark text-white" type="reset" id="reset">Reset Form</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <td colspan=" 2">
+                        <div class="d-grid gap-2 col-4 mx-auto mt-1 mb-2">
+                            <a class="text-decoration-none text-white" href="/posts"><button
+                                    class="btn bg-dark text-white " type="button" id="cancel">
+                                    Cancel</a></button>
+                        </div>
+                    </td>
                 </tbody>
 
 

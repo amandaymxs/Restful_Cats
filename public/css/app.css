@@ -1,3 +1,4 @@
+  
 body{
     line-height: 1em;
 }
@@ -31,11 +32,6 @@ body{
 .valueItem{
     font-family: 'Roboto', sans-serif;
 }
-
-/* #submit:disabled{
-    opacity: 0.3;
-} */
-
 
 [id^=feedback]{
     font-size: small;
